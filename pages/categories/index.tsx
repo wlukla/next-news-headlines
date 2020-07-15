@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import MainLayout from '../../components/MainLayout';
 import { getTopHeadlinesByCategory } from '../../services/news-service';
 
 interface CategoriesProps {
@@ -9,7 +10,7 @@ interface CategoriesProps {
 
 const Categories = ({ articles }: CategoriesProps) => {
   return (
-    <div>
+    <MainLayout>
       <ul>
         {articles.map(({ title, description, urlToImage, url }) => (
           <li key={title}>
@@ -22,7 +23,7 @@ const Categories = ({ articles }: CategoriesProps) => {
           </li>
         ))}
       </ul>
-    </div>
+    </MainLayout>
   );
 };
 
