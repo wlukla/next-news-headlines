@@ -13,16 +13,23 @@ interface CategoryProps {
 const Category: NextPage<CategoryProps> = ({ articles }) => {
   return (
     <MainLayout>
-      <Container>
-        {articles.map((articleData) => (
-          <Row
-            className="d-flex justify-content-center"
-            key={articleData.title}
-          >
-            <Article articleData={articleData} />
-          </Row>
-        ))}
-      </Container>
+      {articles.length ? (
+        <>
+          <h2 className="mb-5">Your results:</h2>
+          <Container>
+            {articles.map((articleData) => (
+              <Row
+                className="d-flex justify-content-center"
+                key={articleData.title}
+              >
+                <Article articleData={articleData} />
+              </Row>
+            ))}
+          </Container>
+        </>
+      ) : (
+        <h3 className="mt-5">Sorry, but we didn't find anything for you :(</h3>
+      )}
     </MainLayout>
   );
 };
