@@ -1,11 +1,10 @@
-import styled from 'styled-components';
+import React from 'react';
+import MainLayout from '../components/MainLayout';
 
-export default () => (
-  <div>
-    <Title>Landing</Title>
-  </div>
+const Home: React.FC = () => (
+  <MainLayout>
+    <h1>Landing</h1>
+  </MainLayout>
 );
 
-const Title = styled.h1`
-  color: red;
-`;
+export default Home;

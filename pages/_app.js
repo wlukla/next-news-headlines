@@ -1,6 +1,7 @@
 import App from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

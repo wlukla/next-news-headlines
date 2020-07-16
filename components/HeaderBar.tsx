@@ -1,4 +1,5 @@
 import React from 'react';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -15,50 +16,27 @@ const routes = [
 
 const HeaderBar = () => {
   return (
-    <Header>
-      <Nav>
-        <List>
-          {routes.map(({ label, url }) => (
-            <ListItem>
-              <Link href={url}>
-                <a>{label}</a>
-              </Link>
-            </ListItem>
-          ))}
-        </List>
-      </Nav>
-    </Header>
+    <Wrapper>
+      <Navbar bg="dark" expand="lg" variant="dark">
+        <Navbar.Brand href="#home">Headlines</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link>
+              <Link href="/">Home</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link href="/categories">Categories</Link>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </Wrapper>
   );
 };
 
-const Header = styled.header`
+const Wrapper = styled.div`
   width: 100%;
-  height: 60px;
-  background-color: lightgrey;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Nav = styled.nav`
-  width: 100%;
-  height: 100%;
-`;
-
-const List = styled.ul`
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-`;
-
-const ListItem = styled.li`
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 export default HeaderBar;
