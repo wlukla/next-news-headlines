@@ -1,4 +1,5 @@
 import React from 'react';
+import { NextPage } from 'next';
 
 import MainLayout from '../../components/MainLayout';
 import { getTopHeadlinesByCategory } from '../../services/news-service';
@@ -7,7 +8,7 @@ interface CategoryProps {
   articles: any;
 }
 
-const Category = ({ articles }: CategoryProps) => {
+const Category: NextPage<CategoryProps> = ({ articles }) => {
   return (
     <MainLayout>
       <ul>
@@ -28,7 +29,7 @@ const Category = ({ articles }: CategoryProps) => {
 
 Category.getInitialProps = async (ctx) => {
   const { category } = ctx.query;
-  const headlinesData = await getTopHeadlinesByCategory(category);
+  const headlinesData = await getTopHeadlinesByCategory(category.toString());
   const { articles } = headlinesData;
 
   console.log('requested');

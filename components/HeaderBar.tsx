@@ -22,11 +22,20 @@ const HeaderBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link>
-              <Link href="/">Home</Link>
+            <Nav.Link className="mr-5">
+              <Link href="/">
+                <a>Home</a>
+              </Link>
             </Nav.Link>
-            <Nav.Link>
-              <Link href="/categories">Categories</Link>
+            <Nav.Link className="mr-5">
+              <Link href="/categories">
+                <a>Categories</a>
+              </Link>
+            </Nav.Link>
+            <Nav.Link className="mr-5">
+              <Link href="/search">
+                <a>Search</a>
+              </Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
