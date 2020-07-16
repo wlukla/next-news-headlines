@@ -34,6 +34,7 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     'import/no-unresolved': 0,
     'jsx-a11y/anchor-is-valid': 0,
+    'react/no-array-index-key': 0,
   },
   settings: {
     'import/resolver': {

@@ -31,6 +31,7 @@ const Search: NextPage = () => {
               placeholder="Type your query..."
               aria-label="Type your query..."
               aria-describedby="basic-addon2"
+              value={inputText}
               onChange={(evt) => setInputText(evt.target.value)}
             />
             <InputGroup.Append>

@@ -17,8 +17,8 @@ const Category: NextPage<CategoryProps> = ({ articles }) => {
         <>
           <h2 className="mb-5">Your results:</h2>
           <Container>
-            {articles.map((articleData) => (
-              <Row className="d-flex justify-content-center" key={articleData.title}>
+            {articles.map((articleData, i) => (
+              <Row className="d-flex justify-content-center" key={i}>
                 <Article articleData={articleData} />
               </Row>
             ))}
