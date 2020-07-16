@@ -18,9 +18,10 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ cardData }) => {
       <Card.Body>
         <Card.Title>{label}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{subtitle}</Card.Subtitle>
-        <Card.Link href={path} as={Link}>
+
+        <Link href={path}>
           <a>Go to category: {label}</a>
-        </Card.Link>
+        </Link>
       </Card.Body>
     </Card>
   );

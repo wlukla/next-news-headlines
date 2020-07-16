@@ -3,7 +3,7 @@ import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
-import MainLayout from '../components/MainLayout';
+import MainLayout from 'components/MainLayout';
 
 const Home: NextPage = () => (
   <MainLayout>
@@ -21,11 +21,7 @@ const Home: NextPage = () => (
       <a>
         <OverlayTrigger
           placement="bottom"
-          overlay={
-            <Tooltip id="some-id">
-              eg. Gambling, Casino, Roulette, Slots
-            </Tooltip>
-          }
+          overlay={<Tooltip id="some-id">eg. Gambling, Casino, Roulette, Slots</Tooltip>}
         >
           <Button size="lg" variant="dark">
             Search for something specific

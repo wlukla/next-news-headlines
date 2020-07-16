@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+import { ArticleData } from 'types';
+
 const BASE_URL = 'https://newsapi.org/v2/';
 const API_KEY = 'bfdf4747486f49ceb456503b77f55b9c';
 
-const getTopHeadlinesByCategory = async (category: string) => {
+const getTopHeadlinesByCategory = async (category: string): Promise<ArticleData[]> => {
   const url = `${BASE_URL}/top-headlines?category=${category}&language=en&apiKey=${API_KEY}`;
   const response = await axios.get(url);
 
@@ -12,7 +14,7 @@ const getTopHeadlinesByCategory = async (category: string) => {
   return articles;
 };
 
-const getTopHeadlinesByQuery = async (query: string) => {
+const getTopHeadlinesByQuery = async (query: string): Promise<ArticleData[]> => {
   const url = `${BASE_URL}/top-headlines?q=${query}&language=en&apiKey=${API_KEY}`;
   const response = await axios.get(url);
 

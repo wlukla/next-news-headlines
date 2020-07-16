@@ -8,7 +8,10 @@ useStaticRendering(isServer);
 
 let store = null;
 
-const initializeStore = () => {
+const initializeStore = (): {
+  categoryStore: CategoryStore;
+  searchQueryStore: SearchQueryStore;
+} => {
   if (isServer) {
     return {
       categoryStore: new CategoryStore(),

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
@@ -21,9 +22,7 @@ export default class MyApp extends App {
   constructor(props) {
     super(props);
     const isServer = typeof window === 'undefined';
-    this.mobxStore = isServer
-      ? props.initialMobxState
-      : initializeStore(props.initialMobxState);
+    this.mobxStore = isServer ? props.initialMobxState : initializeStore(props.initialMobxState);
   }
 
   render() {

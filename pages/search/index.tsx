@@ -3,7 +3,7 @@ import { Container, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
-import MainLayout from '../../components/MainLayout';
+import MainLayout from 'components/MainLayout';
 
 const Search: NextPage = () => {
   const [inputText, setInputText] = useState('');
@@ -11,7 +11,7 @@ const Search: NextPage = () => {
 
   const handleSubmit = useCallback(() => {
     if (inputText.length) {
-      const query = `/search/${inputText.replace(' ', ',')}`;
+      const query = `/search/${inputText}`;
       router.push(query);
     }
   }, [inputText, router]);

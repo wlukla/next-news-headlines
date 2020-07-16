@@ -1,9 +1,9 @@
 import { observable, action } from 'mobx';
 
-import { getTopHeadlinesByQuery } from '../services/news-service';
-import { ArticleData } from '../types';
+import { getTopHeadlinesByQuery } from 'services/news-service';
+import { ArticleData } from 'types';
 
-class CategoryStore {
+class SearchQueryStore {
   @observable articles = null;
 
   endpoint = 'query';
@@ -12,14 +12,14 @@ class CategoryStore {
     this.articles = [];
   }
 
-  async fetchHeadlines(query: string) {
+  async fetchHeadlines(query: string): Promise<void> {
     const response = await getTopHeadlinesByQuery(query);
     this.setArticles(response);
   }
 
-  @action setArticles(articles: ArticleData[]) {
+  @action setArticles(articles: ArticleData[]): void {
     this.articles = articles;
   }
 }
 
-export default CategoryStore;
+export default SearchQueryStore;

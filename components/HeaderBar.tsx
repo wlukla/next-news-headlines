@@ -1,20 +1,9 @@
 import React from 'react';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const routes = [
-  {
-    label: 'Home',
-    url: '/',
-  },
-  {
-    label: 'Categories',
-    url: '/categories',
-  },
-];
-
-const HeaderBar = () => {
+const HeaderBar: React.FC = () => {
   return (
     <Wrapper>
       <Navbar bg="dark" expand="lg" variant="dark">

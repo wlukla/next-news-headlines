@@ -2,9 +2,9 @@ import React from 'react';
 import { NextPage } from 'next';
 import { Container, Row } from 'react-bootstrap';
 
-import MainLayout from '../../components/MainLayout';
-import Article from '../../components/Article';
-import { ArticleData, MyPageContext } from '../../types';
+import MainLayout from 'components/MainLayout';
+import Article from 'components/Article';
+import { ArticleData, MyPageContext } from 'types';
 
 interface CategoryProps {
   articles: ArticleData[];
@@ -18,17 +18,14 @@ const Category: NextPage<CategoryProps> = ({ articles }) => {
           <h2 className="mb-5">Your results:</h2>
           <Container>
             {articles.map((articleData) => (
-              <Row
-                className="d-flex justify-content-center"
-                key={articleData.title}
-              >
+              <Row className="d-flex justify-content-center" key={articleData.title}>
                 <Article articleData={articleData} />
               </Row>
             ))}
           </Container>
         </>
       ) : (
-        <h3 className="mt-5">Sorry, but we didn't find anything for you :(</h3>
+        <h3 className="mt-5">Sorry, but we couldn't find anything for you :(</h3>
       )}
     </MainLayout>
   );

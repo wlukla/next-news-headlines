@@ -2,7 +2,7 @@ import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import styled from 'styled-components';
 
-import { ArticleData } from '../types';
+import { ArticleData } from 'types';
 
 interface ArticleProps {
   articleData: ArticleData;
@@ -22,7 +22,7 @@ const Article: React.FC<ArticleProps> = ({ articleData }) => {
       {content && <p>{content.split(' [')[0]}</p>}
 
       {url && (
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" rel="noreferrer">
           Go to article
         </a>
       )}
