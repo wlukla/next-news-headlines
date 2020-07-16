@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { Container, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
@@ -9,12 +9,12 @@ const Search: NextPage = () => {
   const [inputText, setInputText] = useState('');
   const router = useRouter();
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = () => {
     if (inputText.length) {
       const query = `/search/${inputText}`;
       router.push(query);
     }
-  }, [inputText, router]);
+  };
 
   return (
     <MainLayout>
