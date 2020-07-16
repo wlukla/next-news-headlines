@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, InputGroup, FormControl, Button } from 'react-bootstrap';
+import { Container, InputGroup, Form, FormControl, Button } from 'react-bootstrap';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 
@@ -20,7 +20,12 @@ const Search: NextPage = () => {
     <MainLayout>
       <h2>Enter keywords about your topic and hit Enter</h2>
       <Container fluid className="p-5 mt-5 w-50">
-        <form onSubmit={handleSubmit}>
+        <Form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
           <InputGroup className="mb-3">
             <FormControl
               placeholder="Type your query..."
@@ -34,7 +39,7 @@ const Search: NextPage = () => {
               </Button>
             </InputGroup.Append>
           </InputGroup>
-        </form>
+        </Form>
       </Container>
     </MainLayout>
   );
