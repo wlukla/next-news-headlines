@@ -46,6 +46,7 @@ const Categories: NextPage = () => {
 
   return (
     <MainLayout>
+      <h3>Pick one category from listed below</h3>
       <Container
         fluid
         className="mt-5 w-75 d-flex justify-content-space-around justify-content-around flex-wrap"

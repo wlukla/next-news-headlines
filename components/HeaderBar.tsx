@@ -18,7 +18,11 @@ const HeaderBar = () => {
   return (
     <Wrapper>
       <Navbar bg="dark" expand="lg" variant="dark">
-        <Navbar.Brand href="#home">Headlines</Navbar.Brand>
+        <Navbar.Brand>
+          <Link href="/">
+            <WhiteColorLink>Headlines</WhiteColorLink>
+          </Link>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
@@ -47,6 +51,11 @@ const HeaderBar = () => {
 const Wrapper = styled.div`
   width: 100%;
   margin-bottom: 2rem;
+`;
+
+const WhiteColorLink = styled.a`
+  color: #ffffff;
+  cursor: pointer;
 `;
 
 export default HeaderBar;

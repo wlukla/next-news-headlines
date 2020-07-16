@@ -1,12 +1,39 @@
 import React from 'react';
 import { NextPage } from 'next';
+import { Container, Row } from 'react-bootstrap';
 
 import MainLayout from '../../components/MainLayout';
+import Article from '../../components/Article';
+import { ArticleData, MyPageContext } from '../../types';
 
-const Search: NextPage = () => (
-  <MainLayout>
-    <h2>Query</h2>
-  </MainLayout>
-);
+interface CategoryProps {
+  articles: ArticleData[];
+}
 
-export default Search;
+const Category: NextPage<CategoryProps> = ({ articles }) => {
+  return (
+    <MainLayout>
+      <h2 className="mb-5">Your results:</h2>
+      <Container>
+        {articles.map((articleData) => (
+          <Row
+            className="d-flex justify-content-center"
+            key={articleData.title}
+          >
+            <Article articleData={articleData} />
+          </Row>
+        ))}
+      </Container>
+    </MainLayout>
+  );
+};
+
+Category.getInitialProps = async ({ mobxStore, query }: MyPageContext) => {
+  await mobxStore.searchQueryStore.fetchHeadlines(query.query.toString());
+
+  return {
+    articles: mobxStore.searchQueryStore.articles,
+  };
+};
+
+export default Category;
