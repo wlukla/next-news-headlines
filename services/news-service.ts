@@ -7,9 +7,9 @@ const getTopHeadlinesByCategory = async (category: string) => {
   const url = `${BASE_URL}/top-headlines?category=${category}&apiKey=${API_KEY}`;
   const response = await axios.get(url);
 
-  const data = response.data;
+  const { articles } = response.data;
 
-  return data;
+  return articles;
 };
 
 export { getTopHeadlinesByCategory };

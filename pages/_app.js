@@ -1,30 +1,41 @@
+import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
-import React from 'react';
+import { Provider } from 'mobx-react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import initializeStore from '../stores/stores';
+
 export default class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
+  static async getInitialProps(appContext) {
+    const mobxStore = initializeStore();
+    appContext.ctx.mobxStore = mobxStore;
+    const appProps = await App.getInitialProps(appContext);
+    return {
+      ...appProps,
+      initialMobxState: mobxStore,
+    };
+  }
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
+  constructor(props) {
+    super(props);
+    const isServer = typeof window === 'undefined';
+    this.mobxStore = isServer
+      ? props.initialMobxState
+      : initializeStore(props.initialMobxState);
   }
 
   render() {
     const { Component, pageProps } = this.props;
 
     return (
-      <>
+      <Provider {...this.mobxStore}>
         <Head>
           <title>News Headlines</title>
         </Head>
         <Component {...pageProps} />
-      </>
+      </Provider>
     );
   }
 }

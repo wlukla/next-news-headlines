@@ -2,13 +2,14 @@ import React from 'react';
 import { NextPage } from 'next';
 
 import MainLayout from '../../components/MainLayout';
-import { getTopHeadlinesByCategory } from '../../services/news-service';
+import { MyPageContext } from '../../types';
 
 interface CategoryProps {
   articles: any;
 }
 
 const Category: NextPage<CategoryProps> = ({ articles }) => {
+  console.log(articles);
   return (
     <MainLayout>
       <ul>
@@ -27,15 +28,12 @@ const Category: NextPage<CategoryProps> = ({ articles }) => {
   );
 };
 
-Category.getInitialProps = async (ctx) => {
-  const { category } = ctx.query;
-  const headlinesData = await getTopHeadlinesByCategory(category.toString());
-  const { articles } = headlinesData;
-
-  console.log('requested');
+Category.getInitialProps = async ({ mobxStore, query }: MyPageContext) => {
+  const { category } = query;
+  await mobxStore.categoryStore.fetchHeadlines(category.toString());
 
   return {
-    articles,
+    articles: mobxStore.categoryStore.articles,
   };
 };
 
