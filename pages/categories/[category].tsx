@@ -1,29 +1,28 @@
 import React from 'react';
 import { NextPage } from 'next';
+import { Container, Row } from 'react-bootstrap';
 
 import MainLayout from '../../components/MainLayout';
-import { MyPageContext } from '../../types';
+import Article from '../../components/Article';
+import { ArticleData, MyPageContext } from '../../types';
 
 interface CategoryProps {
-  articles: any;
+  articles: ArticleData[];
 }
 
 const Category: NextPage<CategoryProps> = ({ articles }) => {
-  console.log(articles);
   return (
     <MainLayout>
-      <ul>
-        {articles.map(({ title, description, urlToImage, url }) => (
-          <li key={title}>
-            <h3>{title}</h3>
-            <p>{description}</p>
-            <img src={urlToImage} width="200" height="100" />
-            <a href={url} target="_blank">
-              Go to article
-            </a>
-          </li>
+      <Container>
+        {articles.map((articleData) => (
+          <Row
+            className="d-flex justify-content-center"
+            key={articleData.title}
+          >
+            <Article articleData={articleData} />
+          </Row>
         ))}
-      </ul>
+      </Container>
     </MainLayout>
   );
 };

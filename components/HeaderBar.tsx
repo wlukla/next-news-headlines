@@ -22,17 +22,17 @@ const HeaderBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link className="mr-5" as="div">
+            <Nav.Link as="div">
               <Link href="/">
                 <a>Home</a>
               </Link>
             </Nav.Link>
-            <Nav.Link className="mr-5" as="div">
+            <Nav.Link as="div">
               <Link href="/categories">
                 <a>Categories</a>
               </Link>
             </Nav.Link>
-            <Nav.Link className="mr-5" as="div">
+            <Nav.Link as="div">
               <Link href="/search">
                 <a>Search</a>
               </Link>
@@ -46,6 +46,7 @@ const HeaderBar = () => {
 
 const Wrapper = styled.div`
   width: 100%;
+  margin-bottom: 2rem;
 `;
 
 export default HeaderBar;

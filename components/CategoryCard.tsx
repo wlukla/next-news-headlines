@@ -14,7 +14,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ cardData }) => {
   const { label, path, subtitle } = cardData;
 
   return (
-    <Card className="mr-1 ml-1" style={{ width: '18rem' }} key={label}>
+    <Card className="mr-1 ml-1 mt-5" style={{ width: '18rem' }} key={label}>
       <Card.Body>
         <Card.Title>{label}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{subtitle}</Card.Subtitle>

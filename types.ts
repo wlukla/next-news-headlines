@@ -2,7 +2,7 @@ import { NextPageContext } from 'next';
 
 import CategoryStore from './stores/category-store';
 
-export interface Article {
+export interface ArticleData {
   source: {
     id: string | null;
   };

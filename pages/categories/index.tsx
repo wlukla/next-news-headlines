@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Card } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { NextPage } from 'next';
 
 import CategoryCard from '../../components/CategoryCard';
@@ -46,17 +46,13 @@ const Categories: NextPage = () => {
 
   return (
     <MainLayout>
-      <Container fluid className="mt-5">
-        <Row className="justify-content-md-center mb-5">
-          {categories.slice(0, 4).map((cardData) => (
-            <CategoryCard cardData={cardData} key={cardData.label} />
-          ))}
-        </Row>
-        <Row className="justify-content-md-center">
-          {categories.slice(4).map((cardData) => (
-            <CategoryCard cardData={cardData} key={cardData.label} />
-          ))}
-        </Row>
+      <Container
+        fluid
+        className="mt-5 w-75 d-flex justify-content-space-around justify-content-around flex-wrap"
+      >
+        {categories.map((cardData) => (
+          <CategoryCard cardData={cardData} key={cardData.label} />
+        ))}
       </Container>
     </MainLayout>
   );

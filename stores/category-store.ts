@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx';
 
 import { getTopHeadlinesByCategory } from '../services/news-service';
-import { Article } from '../types';
+import { ArticleData } from '../types';
 
 class CategoryStore {
   @observable articles = null;
@@ -17,7 +17,7 @@ class CategoryStore {
     this.setArticles(response);
   }
 
-  @action setArticles(articles: Article[]) {
+  @action setArticles(articles: ArticleData[]) {
     this.articles = articles;
   }
 }
